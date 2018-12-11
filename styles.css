@@ -1,0 +1,57 @@
+html, body#thebody{  /* override bootstrap's styles with specificity, rather than !important */
+    background-color: #cccccc;
+}
+header, footer{
+    color:#ffffff;
+    background-color:#000000;
+    width: 100vw;
+    text-align: center;
+    padding: 10px 0;
+}
+footer{
+    position:absolute;
+    bottom:0;
+}
+header{
+    margin-bottom: 20px;
+}
+header a, footer a, header a:visited, footer a:visited, form a, form a:visited{
+    color:darkorange;             /*one of my favorite colours for this white/black/grey scheme - readable on white & on black */
+}
+header a:hover, footer a:hover, header a:active, footer a:active, form a:hover, form a:active {
+    color:orangered;              /*one of my favorite colours for this white/black/grey scheme - readable on white & on black */
+}
+#headerMain{
+    font-size: 2.5em;
+    font-weight: bold;
+}
+.headerSub{
+    line-height: 0.9;
+}
+#contentArea{
+    border: 1px #444444 solid;
+    border-radius: 5px;
+    background-color: #ffffff;
+    padding-top: 10px;              /* Doesn't interfere with bootstrap side padding */
+    padding-bottom: 10px;
+}
+form#loginForm, form#loginForm *{
+    font-size: 1.2em;
+    text-align: center;
+}
+input, form#loginForm input{
+    text-align: left;
+}
+#clientTable input{
+    max-width: 100%;
+    width:100%;
+}
+#savecancel span:hover{
+    cursor:pointer;
+}
+.green{
+    color:lawngreen;
+}
+.red{
+    color:orangered;
+}
