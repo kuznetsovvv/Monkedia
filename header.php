@@ -9,9 +9,6 @@
     $username = $_SESSION["username"] ;
     $loggedIn = $_SESSION['loggedin'] ;
 
-    error_reporting(E_ALL);          //TODO: remove these statements used for debug
-    ini_set("display_errors", 1);    //*/
-
 if(empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == "off"){                     //Detect whether SSL is in use, and normally we'd redirect them to the SSL version. 
     $redirect = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
     /*

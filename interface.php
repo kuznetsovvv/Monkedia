@@ -32,9 +32,9 @@ if(($loggedIn == true && password_verify($_SERVER['REMOTE_ADDR'].$username, $_CO
         foreach($data as $key => $value){
             $count -= 1;
             if($key == "ID"){
-                $id = $value;
+                $id = $connection->real_escape_string($value);
             }elseif($key != "fn"){
-                $queryStatement .= "$key= '$value'";
+                $queryStatement .= $connection->real_escape_string($key)." = '".$connection->real_escape_string($value)."'";
                 if($count != 0){
                     $queryStatement .= ", ";
                 }
@@ -42,6 +42,7 @@ if(($loggedIn == true && password_verify($_SERVER['REMOTE_ADDR'].$username, $_CO
         }
         $queryStatement .= " WHERE ID = $id";
         $result = $connection->query($queryStatement);
+        echo $queryStatement;
         return $result;
     }
     function createNew($connection, $data){
@@ -51,7 +52,7 @@ if(($loggedIn == true && password_verify($_SERVER['REMOTE_ADDR'].$username, $_CO
         foreach($data as $key => $value){
             $count -= 1;
             if($key != "fn"){
-                $queryStatement .= "$key";
+                $queryStatement .= $connection->real_escape_string($key);
                 if($count != 0){
                     $queryStatement .= ", ";
                 }
@@ -62,7 +63,7 @@ if(($loggedIn == true && password_verify($_SERVER['REMOTE_ADDR'].$username, $_CO
         foreach($data as $key => $value){
             $count -= 1;
             if($key != "fn"){
-                $queryStatement .= "'$value'";
+                $queryStatement .= "'".$connection->real_escape_string($value)."'";
                 if($count != 0){
                     $queryStatement .= ", ";
                 }

@@ -25,7 +25,7 @@ function checkLogin($username, $password){
         die("Connection failed: " . $conn->connect_error);
     } 
    
-    $queryStatement = "select Username, hash from users WHERE Username ='$username'";
+    $queryStatement = "select Username, hash from users WHERE Username ='".$conn->real_escape_string($username)."'";
     $result = $conn->query($queryStatement);
     $validUser = $result->fetch_assoc();
     

@@ -46,7 +46,7 @@ function selectRow(rowTag){
                 if(data == "ID"){
                     table += ('<td><span id="savecancel"><span onclick="javascript:save();" class="green">&#10004;</span>&nbsp;<span onclick="javascript:cancel('+"'"+row+"'"+');" class="red">&#10006;</span></span>&nbsp;'+rowdata[data]+"</td>");   
                 }else{
-                    table += ("<td><input type='text' id='"+data+"' id='"+data+"' value='"+rowdata[data]+"'/></td>");
+                    table += ("<td><input type='text' id='"+data+"' id='"+data+"' value='"+rowdata[data].replace("'","&#39;").replace('"','&quot;').replace('`','&quot;').replace('"','&#39;')+"'/></td>");
                 }
             }
         jQuery(rowTag).html(table);
